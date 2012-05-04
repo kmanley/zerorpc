@@ -24,12 +24,14 @@ multithreaded case. It is simple to achieve over 10K RPC calls/sec with this imp
 Create an instance of ZeroRpcServer, register functions and/or class instances, and call start().
 Functions can be referenced by different names and/or organized into dotted namespaces.
 
+    ```python
     def mult(a, b):
         return a * b
 
     server = zerorpc.server.ZeroRpcServer("tcp://*:5555")
     server.register_function(mult, name="my.namespace.mult")
     server.start(3, blocking=False)
+    ```
     
 ### Client
 
@@ -37,14 +39,17 @@ Create an instance of ZeroRpcClient and call methods on it as if the functions w
 instance. The call is marshaled to the server transparently. Exceptions on the server are propagated
 to the client.  
     
+    ```python
     client = zerorpc.client.ZeroRpcClient("tcp://localhost:5555")
     result = client.my.namespace.mult(5, 7)
+    ```
 
 ### MultiCall
 
 MultiCall works similarly to the xmlrpclib implementation. The calls are marshaled to the server, and the
 result is returned, in one network roundtrip.
 
+    ```python
     client = zerorpc.client.ZeroRpcClient("tcp://localhost:5555")
     multicall = zerorpc.client.MultiCall(client)
     multicall.my.namespace.mult(2, 2)
@@ -52,6 +57,7 @@ result is returned, in one network roundtrip.
     multicall.my.namespace.mult(4, 4)
     for result in multicall():
         print result
+    ```
         
 ## Example Benchmarks        
 
