@@ -1,4 +1,3 @@
-# TODO: compare to xmlrpclib performance
 import sys
 import traceback
 import threading
@@ -158,14 +157,5 @@ class ZeroRpcServer(object):
                 
         log.debug("worker thread %s exiting" % threading.currentThread().ident)
 
-
-    
-
 if __name__ == "__main__":
-    logging.basicConfig()
-    log.setLevel(logging.DEBUG)
-    #unittest()
-    #unittest2()
-    #unittest3()
-    unittest4()
-    
+    pass

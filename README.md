@@ -2,16 +2,16 @@
 
 A protocol (and Python implementation) for RPC over [ZeroMQ] which uses JSON for
 data serialization. The resulting Python implementation is approx 5x faster than the 
-corresponding xmlrpcserver & client in the single-threaded case, and over 10x faster in the
+corresponding xmlrpcserver & client in the single-threaded case, and nearly 10x faster in the
 multithreaded case. It is simple to achieve over 10K RPC calls/sec with this implementation.   
 
 [ZeroMQ]: http://www.zeromq.org/
 
 ## Requirements
 
-- [Python] (tested with 2.7)
+- [Python] tested with 2.7
 - [ZeroMQ Python bindings]
-- [UltraJson] (but you can plug in your own JSON serializer/deserializer)
+- [UltraJson] but you can plug in your own JSON serializer/deserializer
 
 [Python]: http://www.python.org 
 [ZeroMQ Python bindings]: http://www.zeromq.org/bindings:python
